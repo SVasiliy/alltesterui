@@ -22,7 +22,7 @@ class App extends Component {
                 </p>
 
                 <div>
-                    <Stopwatch running lapse={0} />
+                    <Stopwatch />
                 </div>
 
             </div>
