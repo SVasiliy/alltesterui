@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import './ui.css';
 
 class MyApp extends Component {
     state = { eventCount: 0 }
