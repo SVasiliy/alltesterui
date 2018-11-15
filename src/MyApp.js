@@ -18,7 +18,7 @@ class MyApp extends Component {
                 <p>
                     <button
                         onClick={this.handleButtonClick}
-                        className="button">click</button>
+                        className="button">click counter</button>
                 </p>
             </div>
         );

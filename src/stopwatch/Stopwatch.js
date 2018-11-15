@@ -1,12 +1,15 @@
 
 import React from 'react';
 
-const Stopwatch = () => (
+const Stopwatch = ({ lapse, running }) => (
     <div>
-        <p>0ms</p>
+        <p>{lapse} ms</p>
         <button
             onClick={null}
-            className="button">click</button>
+            className="stopwatchbutton">{running ? 'stop' : 'start'}</button>
+        <button
+            onClick={null}
+            className="stopwatchbutton">clear</button>
     </div>
     );
 

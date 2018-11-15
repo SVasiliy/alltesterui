@@ -18,3 +18,12 @@ body {
   display: inline-block;
   font-size: 16px;
 }
+.stopwatchbutton {
+  border: '1px solid #ccc';
+  background: '#fff'; 
+  font-size: '2em';
+  color: black;
+  padding: 15;
+  margin: 5;
+  width: 200;
+}
