@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MyApp from './MyApp';
 import Stopwatch from './stopwatch/Stopwatch';
+import Simpleform from './simpleform/Simpleform';
 
 class App extends Component {
     state = { loading: false };
@@ -17,12 +18,16 @@ class App extends Component {
                     <MyApp />
                 </div>
 
-                <p className="App-intro">
-                        stopwatch
-                </p>
-
+                <br /><hr /><br />
+                <p className="App-intro">stopwatch</p>
                 <div>
                     <Stopwatch />
+                </div>
+
+                <br /><hr /><br />
+                <p className="App-intro">оракл формс тест</p>
+                <div>
+                    <Simpleform />
                 </div>
 
             </div>
