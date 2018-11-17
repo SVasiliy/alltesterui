@@ -4,6 +4,7 @@ import './App.css';
 import MyApp from './MyApp';
 import Stopwatch from './stopwatch/Stopwatch';
 import Simpleform from './simpleform/Simpleform';
+import Restcall from './restcall/Restcall';
 
 class App extends Component {
     state = { loading: false, compex: null };
@@ -28,6 +29,7 @@ class App extends Component {
                             <MenuItem eventKey="MyApp">Button clicker</MenuItem>
                             <MenuItem eventKey="Stopwatch">Stopwatch</MenuItem>
                             <MenuItem eventKey="Simpleform">Simpleform</MenuItem>
+                            <MenuItem eventKey="Restcall">Rest call</MenuItem>
                             <MenuItem divider />
                             <MenuItem eventKey="null">Clear</MenuItem>
                         </DropdownButton>
@@ -40,6 +42,7 @@ class App extends Component {
                     { this.state.compex === 'MyApp' ? <MyApp /> : null }
                     { this.state.compex === 'Stopwatch' ? <Stopwatch /> : null }
                     { this.state.compex === 'Simpleform' ? <Simpleform /> : null }
+                    { this.state.compex === 'Restcall' ? <Restcall /> : null }
                 </div>
 
             </div>
