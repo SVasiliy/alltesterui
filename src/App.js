@@ -15,13 +15,18 @@ class App extends Component {
                         let&apos;s get started...
                 </p>
 
-                <ButtonToolbar>
-                    <DropdownButton title="Menu" id="dropdown-size-medium">
-                        <MenuItem eventKey="1">Action</MenuItem>
-                        <MenuItem eventKey="2">Another action</MenuItem>
-                        <MenuItem eventKey="3">Something else here</MenuItem>
-                    </DropdownButton>
-                </ButtonToolbar>
+
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <ButtonToolbar>
+                        <DropdownButton title="Menu" id="dropdown-size-medium">
+                            <MenuItem eventKey="1">Action</MenuItem>
+                            <MenuItem eventKey="2">Another action</MenuItem>
+                            <MenuItem eventKey="3">Something else here</MenuItem>
+                        </DropdownButton>
+                    </ButtonToolbar>
+                </div>
+
+                <br /><hr /><br />
 
                 <div>
                     <MyApp />
