@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Simpleform extends Component {
-    state = { error: 'null' }
+    state = { error: null }
     handleSubmit = (event) => {
         event.preventDefault();
        // console.log(event.target.elements.MyName.value);
@@ -19,17 +19,24 @@ class Simpleform extends Component {
         this.setState({ error: this.getErrorMessage(value) });
     }
 
+    componentWillMount() {
+        this.setState(
+            { error: this.getErrorMessage('') },
+        );
+    }
+
     render() {
         const { error } = this.state;
         return (
             <form onSubmit={this.handleSubmit}>
-                <p> Name
+                <p> enter value &nbsp;
                     <input
                         type="text"
                         name="MyName"
                         onChange={this.handleChange} />
                     <button disabled={Boolean(error)} type="submit">submit</button>
                 </p>
+                {error ? <div style={{ color: 'red' }}>{error}</div> : null}
             </form>
         );
     }
