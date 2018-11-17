@@ -14,6 +14,7 @@ class MyApp extends Component {
 
         return (
             <div>
+                <p className="App-intro">button clicker</p><br />
                 <p>button clicked {state.eventCount} times</p>
                 <p>
                     <button

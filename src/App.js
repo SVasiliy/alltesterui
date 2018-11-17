@@ -6,7 +6,11 @@ import Stopwatch from './stopwatch/Stopwatch';
 import Simpleform from './simpleform/Simpleform';
 
 class App extends Component {
-    state = { loading: false };
+    state = { loading: false, compex: null };
+
+    handleSelect = (eventKey) => {
+        this.setState({ compex: eventKey });
+    }
 
     render() {
         return (
@@ -15,13 +19,17 @@ class App extends Component {
                         let&apos;s get started...
                 </p>
 
-
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <ButtonToolbar>
-                        <DropdownButton title="Menu" id="dropdown-size-medium">
-                            <MenuItem eventKey="1">Action</MenuItem>
-                            <MenuItem eventKey="2">Another action</MenuItem>
-                            <MenuItem eventKey="3">Something else here</MenuItem>
+                        <DropdownButton
+                            title="Menu"
+                            id="dropdown-size-medium"
+                            onSelect={this.handleSelect}>
+                            <MenuItem eventKey="MyApp">Button clicker</MenuItem>
+                            <MenuItem eventKey="Stopwatch">Stopwatch</MenuItem>
+                            <MenuItem eventKey="Simpleform">Simpleform</MenuItem>
+                            <MenuItem divider />
+                            <MenuItem eventKey="null">Clear</MenuItem>
                         </DropdownButton>
                     </ButtonToolbar>
                 </div>
@@ -29,19 +37,9 @@ class App extends Component {
                 <br /><hr /><br />
 
                 <div>
-                    <MyApp />
-                </div>
-
-                <br /><hr /><br />
-                <p className="App-intro">stopwatch</p>
-                <div>
-                    <Stopwatch />
-                </div>
-
-                <br /><hr /><br />
-                <p className="App-intro">оракл формс тест</p>
-                <div>
-                    <Simpleform />
+                    { this.state.compex === 'MyApp' ? <MyApp /> : null }
+                    { this.state.compex === 'Stopwatch' ? <Stopwatch /> : null }
+                    { this.state.compex === 'Simpleform' ? <Simpleform /> : null }
                 </div>
 
             </div>

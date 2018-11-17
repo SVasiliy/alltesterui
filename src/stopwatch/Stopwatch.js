@@ -24,6 +24,7 @@ class Stopwatch extends Component {
         const { lapse, running } = this.state;
         return (
             <div>
+                <p className="App-intro">stopwatch</p><br />
                 <p>{lapse} ms</p>
                 <button
                     onClick={this.handleRunClick}
