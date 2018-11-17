@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Restcall extends Component {
-    state = { error: null }
+    state = {
+        persons: [],
+    }
+
+    componentDidMount() {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+            .then((res) => {
+                const persons = res.data;
+                this.setState({ persons });
+            });
+    }
 
     render() {
-        const { error } = this.state;
         return (
             <div>
-                <p className="App-intro">restcall{error}</p><br />
+                <ul>
+                    { this.state.persons.map(person => <li>{person.name}</li>)}
+                </ul>
             </div>
         );
     }
