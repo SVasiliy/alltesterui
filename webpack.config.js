@@ -149,7 +149,9 @@ module.exports = function (env) {
                     minifyURLs: true
                 }
             }),
-            new Dotenv(),
+            new Dotenv({
+                systemvars: true
+            }),
             new ExtractTextPlugin('static/css/[name].[hash].css'),
             new webpack.HotModuleReplacementPlugin(), // 用于热加载
             // 可以替换代码中的变量
