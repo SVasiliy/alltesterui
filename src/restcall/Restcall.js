@@ -29,7 +29,7 @@ class Restcall extends Component {
                     </p>
                 </form>
                 <ul>
-                    {this.state.persons.name != null ? 'username: ' : null } { this.state.persons.name }
+                    {this.state.persons.name != null ? 'user fullname: ' : null } { this.state.persons.name }
                 </ul>
             </div>
         );
