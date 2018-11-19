@@ -15,6 +15,7 @@ module.exports = function (env) {
      * https://webpack.js.org/configuration/configuration-types/#exporting-a-function-to-use-env
      */
     const isProduction = env && env.production === true;
+    const Dotenv = require('dotenv-webpack');
 
     return {
         // 设定代码的入口，入口可以是一个或者多个，即可以传入一个 array
@@ -148,6 +149,7 @@ module.exports = function (env) {
                     minifyURLs: true
                 }
             }),
+            new Dotenv(),
             new ExtractTextPlugin('static/css/[name].[hash].css'),
             new webpack.HotModuleReplacementPlugin(), // 用于热加载
             // 可以替换代码中的变量

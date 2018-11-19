@@ -8,7 +8,8 @@ class Restcall extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.get(`https://jsonplaceholder.typicode.com/users/${event.target.elements.UserId.value}`)
+        // console.log(process.env.REACT_APP_APIURL);
+        axios.get(`${process.env.REACT_APP_APIURL}/users/${event.target.elements.UserId.value}`)
             .then((res) => {
                 const persons = res.data;
                 this.setState({ persons });

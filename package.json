@@ -2,6 +2,7 @@
     "name": "alltesterui",
     "dependencies": {
         "axios": "^0.18.0",
+        "dotenv-webpack": "^1.5.7",
         "react": "^15.6.2",
         "react-bootstrap": "^0.32.4",
         "react-dom": "^15.6.2"
