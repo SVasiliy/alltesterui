@@ -25,7 +25,7 @@ class Restcall extends Component {
                             type="text"
                             name="UserId" />
 
-                        <button type="submit">submitt</button>
+                        <button type="submit">submit</button>
                     </p>
                 </form>
                 <ul>
