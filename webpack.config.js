@@ -161,10 +161,7 @@ module.exports = function (env) {
                 "process.env": {
                     NODE_ENV: isProduction ?
                         JSON.stringify("production") :
-                        JSON.stringify("development"),
-                    REACT_APP_APIURL: isProduction ?
-                        JSON.stringify("production") :
-                        null
+                        JSON.stringify("development")
                 }
             })
         ],
