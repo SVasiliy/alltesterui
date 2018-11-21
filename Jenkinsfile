@@ -16,9 +16,9 @@ pipeline {
 				sh 'chmod 755 ./scripts/deliver.sh'
 				sh 'chmod 755 ./scripts/kill.sh'
 				sh 'pwd'
-                sh './scripts/deliver.sh'
+                sh 'sh ./scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './scripts/kill.sh'
+                sh 'sh ./scripts/kill.sh'
             }
         }
     }
