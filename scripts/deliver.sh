@@ -1,4 +1,4 @@
-#!/bin sh
+#!/bin bash
 
 echo 'The following "npm" command builds your Node.js/React application for'
 echo 'production in the local "build" directory (i.e. within the'
