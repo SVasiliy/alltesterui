@@ -12,6 +12,12 @@ class Loginform extends Component {
         };
     }
 
+    handleChange = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value,
+        });
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
     }
@@ -30,13 +36,13 @@ class Loginform extends Component {
                             <FormControl
                                 autoFocus
                                 type="email"
-                                value={this.state.email}
+                                defaultValue={this.state.email}
                                 onChange={this.handleChange} />
                         </FormGroup>
                         <FormGroup controlId="password" bsSize="large">
                             <ControlLabel>Password</ControlLabel>
                             <FormControl
-                                value={this.state.password}
+                                defaultValue={this.state.password}
                                 onChange={this.handleChange}
                                 type="password" />
                         </FormGroup>
@@ -45,7 +51,7 @@ class Loginform extends Component {
                             bsSize="large"
                             disabled={!this.validateForm()}
                             type="submit">
-                    Login
+                                Login
                         </Button>
                     </form>
                 </div>
