@@ -4,6 +4,7 @@ import './App.css';
 import MyApp from './MyApp';
 import Stopwatch from './stopwatch/Stopwatch';
 import Simpleform from './simpleform/Simpleform';
+import Loginform from './simpleform/Loginform';
 import Restcall from './restcall/Restcall';
 import Users from './restcall/Users';
 
@@ -29,7 +30,8 @@ class App extends Component {
                             onSelect={this.handleSelect}>
                             <MenuItem eventKey="MyApp">Button clicker</MenuItem>
                             <MenuItem eventKey="Stopwatch">Stopwatch</MenuItem>
-                            <MenuItem eventKey="Simpleform">Simpleform</MenuItem>
+                            <MenuItem eventKey="Simpleform">Simple form</MenuItem>
+                            <MenuItem eventKey="Loginform">Login form</MenuItem>
                             <MenuItem eventKey="Restcall">Rest call</MenuItem>
                             <MenuItem divider />
                             <MenuItem eventKey="null">Clear</MenuItem>
@@ -43,6 +45,7 @@ class App extends Component {
                     { this.state.compex === 'MyApp' ? <MyApp /> : null }
                     { this.state.compex === 'Stopwatch' ? <Stopwatch /> : null }
                     { this.state.compex === 'Simpleform' ? <Simpleform /> : null }
+                    { this.state.compex === 'Loginform' ? <Loginform /> : null }
                     { this.state.compex === 'Restcall' ? <div><Users /><Restcall /></div> : null }
                 </div>
 
