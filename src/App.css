@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 15px;
 }
 
 .App-logo {
@@ -16,6 +17,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.App .navbar-brand {
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
