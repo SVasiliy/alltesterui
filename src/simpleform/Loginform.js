@@ -37,8 +37,9 @@ class Loginform extends Component {
                    { auth: { username: process.env.REACT_APP_KCLOGIN, password: process.env.REACT_APP_KCPWD },
                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                    })
-            .then((res) => {
-                console.log(res.data);
+            .then(() => {
+                this.props.userHasAuthenticated(true);
+                // console.log(this.props.isAuthenticated);
             });
     }
 

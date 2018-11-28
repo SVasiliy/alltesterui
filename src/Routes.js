@@ -1,10 +1,11 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Home from './containers/Home';
-import Login from './simpleform/Loginform';
+import Loginform from './simpleform/Loginform';
+import AppliedRoute from './components/AppliedRoute';
 
-export default () =>
+export default ({ childProps }) =>
   (<Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/login" exact component={Login} />
+      <AppliedRoute path="/" exact component={Home} props={childProps} />
+      <AppliedRoute path="/login" exact component={Loginform} props={childProps} />
   </Switch>);
