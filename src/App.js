@@ -18,6 +18,10 @@ class App extends Component {
         this.setState({ isAuthenticated: authenticated });
     }
 
+    handleLogout = () => {
+        this.userHasAuthenticated(false);
+    }
+
     render() {
         const childProps = {
             isAuthenticated: this.state.isAuthenticated,
@@ -35,9 +39,13 @@ class App extends Component {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
-                            <LinkContainer to="/login">
-                                <NavItem>Login</NavItem>
-                            </LinkContainer>
+                            {
+                                this.state.isAuthenticated
+                                ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
+                                : <LinkContainer to="/login">
+                                    <NavItem>Login</NavItem>
+                                </LinkContainer>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
