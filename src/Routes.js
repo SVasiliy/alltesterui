@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import Home from './containers/Home';
-import Loginform from './simpleform/Loginform';
+import Loginform from './components/login/Loginform';
 import AppliedRoute from './components/AppliedRoute';
 
 export default ({ childProps }) =>
