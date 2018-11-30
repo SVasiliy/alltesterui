@@ -11,11 +11,16 @@ class App extends Component {
         super(props);
         this.state = {
             isAuthenticated: false,
+            token: null,
         };
     }
 
     userHasAuthenticated = (authenticated) => {
         this.setState({ isAuthenticated: authenticated });
+    }
+
+    saveToken = (val) => {
+        this.setState({ token: val });
     }
 
     handleLogout = () => {
@@ -25,7 +30,9 @@ class App extends Component {
     render() {
         const childProps = {
             isAuthenticated: this.state.isAuthenticated,
+            token: this.state.token,
             userHasAuthenticated: this.userHasAuthenticated,
+            saveToken: this.saveToken,
         };
 
         return (
