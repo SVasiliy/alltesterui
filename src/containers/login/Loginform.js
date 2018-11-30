@@ -27,6 +27,8 @@ class Loginform extends Component {
                 this.props.saveToken(res.data.access_token);
                 // console.log(this.props.token);
             });
+
+        this.props.history.push('/');
     }
 
     render() {
