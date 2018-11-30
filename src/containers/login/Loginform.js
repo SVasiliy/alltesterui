@@ -8,21 +8,6 @@ const querystring = require('querystring');
 
 class Loginform extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            username: '',
-            password: '',
-        };
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            [event.target.id]: event.target.value,
-        });
-    }
-
     handleSubmit = (event) => {
         event.preventDefault();
 
@@ -56,21 +41,17 @@ class Loginform extends Component {
                             <ControlLabel>Username</ControlLabel>
                             <FormControl
                                 autoFocus
-                                type="text"
-                                defaultValue={this.state.username}
-                                onChange={this.handleChange} />
+                                type="text" />
                         </FormGroup>
                         <FormGroup controlId="password" bsSize="large">
                             <ControlLabel>Password</ControlLabel>
                             <FormControl
-                                defaultValue={this.state.password}
-                                onChange={this.handleChange}
                                 type="password" />
                         </FormGroup>
                         <Button
                             block
                             bsSize="large"
-                            disabled={!this.validateForm()}
+                            disabled={false} // {!this.validateForm()}
                             type="submit">
                                 Login
                         </Button>
