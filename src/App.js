@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './App.css';
 import Routes from './Routes';
@@ -41,11 +41,21 @@ class App extends Component {
                 <Navbar fluid collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <Link to="/">Main</Link>
+                            <Link to="/">Alltester</Link>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
+                        <Nav>
+                            <NavDropdown title="Tests" id="basic-nav-dropdown">
+                                <LinkContainer to="/clicker">
+                                    <MenuItem>Button clicker</MenuItem>
+                                </LinkContainer>
+                                <LinkContainer to="/stopwatch">
+                                    <MenuItem>Stopwatch</MenuItem>
+                                </LinkContainer>
+                            </NavDropdown>
+                        </Nav>
                         <Nav pullRight>
                             {
                                 this.state.isAuthenticated

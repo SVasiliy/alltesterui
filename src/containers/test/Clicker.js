@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-class MyApp extends Component {
+class Clicker extends Component {
     state = { eventCount: 0 }
 
     handleButtonClick = () => {
@@ -26,4 +26,4 @@ class MyApp extends Component {
     }
 }
 
-export default MyApp;
+export default Clicker;
