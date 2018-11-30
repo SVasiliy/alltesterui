@@ -46,16 +46,20 @@ class App extends Component {
                         <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
-                        <Nav>
-                            <NavDropdown title="Tests" id="basic-nav-dropdown">
-                                <LinkContainer to="/clicker">
-                                    <MenuItem>Button clicker</MenuItem>
-                                </LinkContainer>
-                                <LinkContainer to="/stopwatch">
-                                    <MenuItem>Stopwatch</MenuItem>
-                                </LinkContainer>
-                            </NavDropdown>
-                        </Nav>
+                        {
+                                this.state.isAuthenticated
+                                ? <Nav>
+                                    <NavDropdown title="Tests" id="basic-nav-dropdown">
+                                        <LinkContainer to="/clicker">
+                                            <MenuItem>Button clicker</MenuItem>
+                                        </LinkContainer>
+                                        <LinkContainer to="/stopwatch">
+                                            <MenuItem>Stopwatch</MenuItem>
+                                        </LinkContainer>
+                                    </NavDropdown>
+                                </Nav>
+                                : null
+                            }
                         <Nav pullRight>
                             {
                                 this.state.isAuthenticated
