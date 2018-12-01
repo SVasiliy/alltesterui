@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import axios from 'axios';
+import Restcall from './Restcall';
 
 class Users extends Component {
     state = {
@@ -35,6 +36,7 @@ class Users extends Component {
                                     <td>{person.email}</td> </tr>)) }
                     </tbody>
                 </Table>
+                <Restcall />
             </div>
         );
     }

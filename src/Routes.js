@@ -4,6 +4,7 @@ import Home from './containers/Home';
 import Loginform from './containers/login/Loginform';
 import Clicker from './containers/test/Clicker';
 import Stopwatch from './containers/test/Stopwatch';
+import Users from './containers/test/Users';
 import AppliedRoute from './components/AppliedRoute';
 
 export default ({ childProps }) =>
@@ -12,4 +13,5 @@ export default ({ childProps }) =>
       <AppliedRoute path="/login" exact component={Loginform} props={childProps} />
       <AppliedRoute path="/clicker" exact component={Clicker} props={childProps} />
       <AppliedRoute path="/stopwatch" exact component={Stopwatch} props={childProps} />
+      <AppliedRoute path="/users" exact component={Users} props={childProps} />
   </Switch>);

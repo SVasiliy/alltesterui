@@ -56,6 +56,9 @@ class App extends Component {
                                         <LinkContainer to="/stopwatch">
                                             <MenuItem>Stopwatch</MenuItem>
                                         </LinkContainer>
+                                        <LinkContainer to="/users">
+                                            <MenuItem>User list</MenuItem>
+                                        </LinkContainer>
                                     </NavDropdown>
                                 </Nav>
                                 : null
