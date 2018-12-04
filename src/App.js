@@ -21,6 +21,7 @@ class App extends Component {
 
     saveToken = (val) => {
         this.setState({ token: val });
+        localStorage.setItem('token', val);
     }
 
     handleLogout = () => {
