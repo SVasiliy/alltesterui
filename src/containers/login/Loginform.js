@@ -24,7 +24,7 @@ class Loginform extends Component {
                    })
             .then((res) => {
                 this.props.userHasAuthenticated(true);
-                this.props.saveToken(res.data.access_token);
+                this.props.saveToken(res.data);
                 // console.log(this.props.token);
             });
 
