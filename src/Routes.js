@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import Home from './containers/Home';
+import ReactBootstrapTable2 from './containers/test/ReactBootstrapTable2';
 import Loginform from './containers/login/Loginform';
 import Clicker from './containers/test/Clicker';
 import Stopwatch from './containers/test/Stopwatch';
@@ -14,4 +15,5 @@ export default ({ childProps }) =>
       <AppliedRoute path="/clicker" exact component={Clicker} props={childProps} />
       <AppliedRoute path="/stopwatch" exact component={Stopwatch} props={childProps} />
       <AppliedRoute path="/users" exact component={Users} props={childProps} />
+      <AppliedRoute path="/react-bootstrap-table2" exact component={ReactBootstrapTable2} props={childProps} />
   </Switch>);

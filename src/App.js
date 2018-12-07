@@ -48,21 +48,25 @@ class App extends Component {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         {
-                                this.state.isAuthenticated
-                                ? <Nav>
-                                    <NavDropdown title="Tests" id="basic-nav-dropdown">
-                                        <LinkContainer to="/clicker">
-                                            <MenuItem>Button clicker</MenuItem>
-                                        </LinkContainer>
-                                        <LinkContainer to="/stopwatch">
-                                            <MenuItem>Stopwatch</MenuItem>
-                                        </LinkContainer>
-                                        <LinkContainer to="/users">
-                                            <MenuItem>User list</MenuItem>
-                                        </LinkContainer>
-                                    </NavDropdown>
-                                </Nav>
-                                : null
+                                // this.state.isAuthenticated
+                                // ?
+                            <Nav>
+                                <NavDropdown title="Tests" id="basic-nav-dropdown">
+                                    <LinkContainer to="/clicker">
+                                        <MenuItem>Button clicker</MenuItem>
+                                    </LinkContainer>
+                                    <LinkContainer to="/stopwatch">
+                                        <MenuItem>Stopwatch</MenuItem>
+                                    </LinkContainer>
+                                    <LinkContainer to="/users">
+                                        <MenuItem>User list</MenuItem>
+                                    </LinkContainer>
+                                    <LinkContainer to="/react-bootstrap-table2">
+                                        <MenuItem>react-bootstrap-table2</MenuItem>
+                                    </LinkContainer>
+                                </NavDropdown>
+                            </Nav>
+                                // : null
                             }
                         <Nav pullRight>
                             {
