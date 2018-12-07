@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
+import BootstrapTable from 'react-bootstrap-table-next';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import '../Home.css';
 
-export default class ReactBootstrapTable2 extends Component {
+class ReactBootstrapTable2 extends Component {
     state = { temp: false }
+
     render() {
+        const products = [];
+        const columns = [{
+            dataField: 'id',
+            text: 'Product ID',
+        }, {
+            dataField: 'name',
+            text: 'Product Name',
+        }, {
+            dataField: 'price',
+            text: 'Product Price',
+        }];
+
         return (
-            <div className="Home">
-                <div className="lander">
-                    <h1>placeholder</h1>
-                </div>
-            </div>
+            <BootstrapTable keyField="id" data={products} columns={columns} />
         );
     }
 }
+
+export default ReactBootstrapTable2;
