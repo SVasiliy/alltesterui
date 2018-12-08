@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import axios from 'axios';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import UserDetails from './UserDetails';
 
 class ReactBootstrapTable2 extends Component {
     state = {
@@ -34,7 +35,7 @@ class ReactBootstrapTable2 extends Component {
 
         const expandRow = {
             renderer: () => (
-                <div>....</div>
+                <UserDetails />
             ),
         };
 
