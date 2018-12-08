@@ -32,8 +32,15 @@ class ReactBootstrapTable2 extends Component {
             text: 'Email',
         }];
 
+        const expandRow = {
+            renderer: () => (
+                <div>....</div>
+            ),
+        };
+
         return (
-            <BootstrapTable keyField="id" data={this.state.persons} columns={columns} />
+
+            <BootstrapTable keyField="id" data={this.state.persons} columns={columns} expandRow={expandRow} />
         );
     }
 }
