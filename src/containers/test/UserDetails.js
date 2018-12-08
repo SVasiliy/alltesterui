@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class UserDetails extends Component {
-    state = {
-        persons: [],
+    constructor(props) {
+        super(props);
+        this.state = { persons: [] };
     }
 
     componentDidMount = () => {
-        // console.log(process.env.REACT_APP_APIURL);
-        axios.get(`${process.env.REACT_APP_APIURL}/users/1`)
+        // console.log(this.props.userId);
+        axios.get(`${process.env.REACT_APP_APIURL}/users/${this.props.userId}`)
             .then((res) => {
                 const persons = res.data;
                 this.setState({ persons });
