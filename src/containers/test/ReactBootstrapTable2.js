@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
+import axios from 'axios';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import '../Home.css';
 
 class ReactBootstrapTable2 extends Component {
-    state = { temp: false }
+    state = {
+        persons: [],
+    }
+
+    componentDidMount() {
+        // console.log(process.env.REACT_APP_APIURL);
+        axios.get(`${process.env.REACT_APP_APIURL}/users`)
+            .then((res) => {
+                const persons = res.data;
+                this.setState({ persons });
+            });
+    }
 
     render() {
-        const products = [];
         const columns = [{
             dataField: 'id',
-            text: 'Product ID',
+            text: 'ID',
+        }, {
+            dataField: 'username',
+            text: 'Username',
         }, {
             dataField: 'name',
-            text: 'Product Name',
+            text: 'Name',
         }, {
-            dataField: 'price',
-            text: 'Product Price',
+            dataField: 'email',
+            text: 'Email',
         }];
 
         return (
-            <BootstrapTable keyField="id" data={products} columns={columns} />
+            <BootstrapTable keyField="id" data={this.state.persons} columns={columns} />
         );
     }
 }
