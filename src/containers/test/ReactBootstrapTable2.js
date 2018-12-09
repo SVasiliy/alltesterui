@@ -34,8 +34,8 @@ class ReactBootstrapTable2 extends Component {
         }];
 
         const expandRow = {
-            renderer: () => (
-                <UserDetails userId={5} />
+            renderer: row => (
+                <UserDetails userId={row.id} />
             ),
         };
 
