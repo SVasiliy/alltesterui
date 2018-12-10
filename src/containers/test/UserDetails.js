@@ -20,7 +20,10 @@ class UserDetails extends Component {
         return (
             <div>
                 <ul>
-                    {this.state.persons.name != null ? 'user fullname: ' : null } { this.state.persons.name }
+                    {this.state.persons.name != null ? 'Name: ' : null } { this.state.persons.name }
+                </ul>
+                <ul>
+                    {this.state.persons.address != null ? 'Address: ' : null } { JSON.stringify(this.state.persons.address) }
                 </ul>
             </div>
         );
