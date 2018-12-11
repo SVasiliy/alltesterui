@@ -4,27 +4,42 @@ import axios from 'axios';
 class UserDetails extends Component {
     constructor(props) {
         super(props);
-        this.state = { persons: [] };
+        this.state = { person: [] };
     }
 
     componentDidMount = () => {
-        // console.log(this.props.userId);
         axios.get(`${process.env.REACT_APP_APIURL}/users/${this.props.userId}`)
             .then((res) => {
-                const persons = res.data;
-                this.setState({ persons });
+                const person = res.data;
+                this.setState({ person });
             });
     }
 
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.persons.name != null ? 'Name: ' : null } { this.state.persons.name }
-                </ul>
-                <ul>
-                    {this.state.persons.address != null ? 'Address: ' : null } { JSON.stringify(this.state.persons.address) }
-                </ul>
+                {this.state.person.name != null ?
+
+                    <div>
+                        <ul>
+                            {this.state.person.name != null ? 'Name: ' : null } { this.state.person.name }
+                        </ul>
+                        <ul>
+                            {this.state.person.address != null ?
+                                <div>
+                                Address:
+                                    <ul>{this.state.person.address.street}</ul>
+                                    <ul>{this.state.person.address.suite}</ul>
+                                    <ul>{this.state.person.address.city}</ul>
+                                    <ul>{this.state.person.address.zipcode}</ul>
+                                </div>
+                            : null
+                            }
+                        </ul>
+                    </div>
+
+                : null }
+
             </div>
         );
     }
