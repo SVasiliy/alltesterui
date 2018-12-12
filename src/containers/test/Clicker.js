@@ -2,11 +2,14 @@
 import React, { Component } from 'react';
 
 class Clicker extends Component {
-    state = { eventCount: 0 }
+
+    constructor(props) {
+        super(props);
+        this.state = { eventCount: 0 };
+    }
 
     handleButtonClick = () => {
-        this.state.eventCount = this.state.eventCount + 1;
-        this.forceUpdate();
+        this.setState({ eventCount: this.state.eventCount + 1 });
     }
 
     render() {
