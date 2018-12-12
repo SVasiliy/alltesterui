@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Table } from 'react-bootstrap';
 import axios from 'axios';
 
 class UserDetails extends Component {
@@ -17,30 +18,28 @@ class UserDetails extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 {this.state.person.name != null ?
-
-                    <div>
-                        <ul>
-                            {this.state.person.name != null ? 'Name: ' : null } { this.state.person.name }
-                        </ul>
-                        <ul>
-                            {this.state.person.address != null ?
-                                <div>
-                                Address:
-                                    <ul>{this.state.person.address.street}</ul>
-                                    <ul>{this.state.person.address.suite}</ul>
-                                    <ul>{this.state.person.address.city}</ul>
-                                    <ul>{this.state.person.address.zipcode}</ul>
-                                </div>
-                            : null
-                            }
-                        </ul>
-                    </div>
-
-                : null }
-
+                    <Table bordered condensed hover>
+                        <tbody>
+                            <tr className="mytable">
+                                <td>Name</td>
+                                <td>{this.state.person.name}</td>
+                            </tr>
+                            <tr className="mytable">
+                                <td>Address</td>
+                                <td>
+                                    {this.state.person.address.street}<br />
+                                    {this.state.person.address.suite}<br />
+                                    {this.state.person.address.city}<br />
+                                    {this.state.person.address.zipcode}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+            : null }
             </div>
+
         );
     }
 }
