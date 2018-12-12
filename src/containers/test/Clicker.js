@@ -3,10 +3,7 @@ import React, { Component } from 'react';
 
 class Clicker extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = { eventCount: 0 };
-    }
+    state = { eventCount: 0 };
 
     handleButtonClick = () => {
         this.setState({ eventCount: this.state.eventCount + 1 });
