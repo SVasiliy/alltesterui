@@ -1,29 +1,29 @@
 
 import React, { Component } from 'react';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 
-class Mobx extends Component {
+
+const Mobx = observer(class Mobx extends Component {
 
     state = { eventCount: 0 };
+    mobxState = observable({
+        counter: 0,
+    });
 
-    handleButtonClick = () => {
-        this.setState({ eventCount: this.state.eventCount + 1 });
-    }
+    handleInc = () => { this.mobxState.counter = this.mobxState.counter + 1; }
+    handleDec = () => { this.mobxState.counter = this.mobxState.counter - 1; }
 
     render() {
-        const state = this.state;
-
         return (
             <div>
-                <p className="App-intro">button clicker</p><br />
-                <p>button clicked {state.eventCount} times</p>
-                <p>
-                    <button
-                        onClick={this.handleButtonClick}
-                        className="button">click counter</button>
-                </p>
+                Counter: {this.mobxState.counter} <br />
+                <button onClick={this.handleInc}> + </button>
+                <button onClick={this.handleDec}> - </button>
             </div>
         );
     }
-}
+
+});
 
 export default Mobx;
