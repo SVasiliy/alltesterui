@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { observable } from 'mobx';
 import './App.css';
 import Routes from './Routes';
+
+export const mobxState = observable({
+    counter: 0,
+});
+
+mobxState.increment = function () {
+    this.counter = this.counter + 1;
+};
+
+mobxState.decrement = function () {
+    this.counter = this.counter - 1;
+};
+
 
 class App extends Component {
 

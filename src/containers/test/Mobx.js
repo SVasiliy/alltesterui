@@ -1,23 +1,17 @@
 
 import React, { Component } from 'react';
-import { observable } from 'mobx';
 import { observer } from 'mobx-react';
-
+import { mobxState } from '../../App';
 
 const Mobx = observer(class Mobx extends Component {
 
-    state = { eventCount: 0 };
-    mobxState = observable({
-        counter: 0,
-    });
-
-    handleInc = () => { this.mobxState.counter = this.mobxState.counter + 1; }
-    handleDec = () => { this.mobxState.counter = this.mobxState.counter - 1; }
+    handleInc = () => { mobxState.increment(); }
+    handleDec = () => { mobxState.decrement(); }
 
     render() {
         return (
             <div>
-                Counter: {this.mobxState.counter} <br />
+                Counter: {mobxState.counter} <br />
                 <button onClick={this.handleInc}> + </button>
                 <button onClick={this.handleDec}> - </button>
             </div>
