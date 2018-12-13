@@ -64,6 +64,9 @@ class App extends Component {
                                     <LinkContainer to="/react-bootstrap-table2">
                                         <MenuItem>react-bootstrap-table2</MenuItem>
                                     </LinkContainer>
+                                    <LinkContainer to="/mobx">
+                                        <MenuItem>Mobx</MenuItem>
+                                    </LinkContainer>
                                 </NavDropdown>
                             </Nav>
                                 // : null
