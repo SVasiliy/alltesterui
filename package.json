@@ -3,6 +3,8 @@
     "dependencies": {
         "axios": "^0.18.0",
         "dotenv-webpack": "^1.5.7",
+        "mobx": "^5.8.0",
+        "mobx-react": "^5.4.3",
         "react": "^16.6.3",
         "react-bootstrap": "^0.32.4",
         "react-bootstrap-table-next": "^1.4.2",
