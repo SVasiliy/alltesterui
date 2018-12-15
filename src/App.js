@@ -6,14 +6,13 @@ import { observable, computed, decorate, action } from 'mobx';
 import { Provider } from 'mobx-react';
 import './App.css';
 import Routes from './Routes';
+import MobxChild from './containers/test/MobxChild';
 
 export class MobxState {
     counter = 0;
-    temperatureUnit = 'C';
-    temperatureValue = 0;
 
-    get temperatureValueFahrenheit() {
-        return this.temperatureValue + 10;
+    get computedCounter() {
+        return this.counter + (this.counter * 2);
     }
 
     increment() {
@@ -26,9 +25,7 @@ export class MobxState {
 }
 decorate(MobxState, {
     counter: observable,
-    temperatureUnit: observable,
-    temperatureValue: observable,
-    temperatureValueFahrenheit: computed,
+    computedCounter: computed,
     increment: action,
     decrement: action,
 });
@@ -72,6 +69,7 @@ class App extends Component {
         return (
             <Provider mobxstate={mobxstate}>
                 <div className="App container">
+                    <MobxChild />
                     <Navbar fluid collapseOnSelect>
                         <Navbar.Header>
                             <Navbar.Brand>
