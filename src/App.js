@@ -2,21 +2,36 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { observable } from 'mobx';
+import { observable, computed, decorate, action } from 'mobx';
+import { Provider } from 'mobx-react';
 import './App.css';
 import Routes from './Routes';
 
-export const mobxState = observable({
-    counter: 0,
+export class MobxState {
+    counter = 0;
+    temperatureUnit = 'C';
+    temperatureValue = 0;
+
+    get temperatureValueFahrenheit() {
+        return this.temperatureValue + 10;
+    }
+
+    increment() {
+        this.counter = this.counter + 1;
+    }
+
+    decrement() {
+        this.counter = this.counter - 1;
+    }
+}
+decorate(MobxState, {
+    counter: observable,
+    temperatureUnit: observable,
+    temperatureValue: observable,
+    temperatureValueFahrenheit: computed,
+    increment: action,
+    decrement: action,
 });
-
-mobxState.increment = function () {
-    this.counter = this.counter + 1;
-};
-
-mobxState.decrement = function () {
-    this.counter = this.counter - 1;
-};
 
 
 class App extends Component {
@@ -28,6 +43,7 @@ class App extends Component {
             token: null,
         };
     }
+
 
     userHasAuthenticated = (authenticated) => {
         this.setState({ isAuthenticated: authenticated });
@@ -51,53 +67,57 @@ class App extends Component {
             saveToken: this.saveToken,
         };
 
+        const mobxstate = new MobxState();
+
         return (
-            <div className="App container">
-                <Navbar fluid collapseOnSelect>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <Link to="/">Alltester</Link>
-                        </Navbar.Brand>
-                        <Navbar.Toggle />
-                    </Navbar.Header>
-                    <Navbar.Collapse>
-                        {
+            <Provider mobxstate={mobxstate}>
+                <div className="App container">
+                    <Navbar fluid collapseOnSelect>
+                        <Navbar.Header>
+                            <Navbar.Brand>
+                                <Link to="/">Alltester</Link>
+                            </Navbar.Brand>
+                            <Navbar.Toggle />
+                        </Navbar.Header>
+                        <Navbar.Collapse>
+                            {
                                 // this.state.isAuthenticated
                                 // ?
-                            <Nav>
-                                <NavDropdown title="Tests" id="basic-nav-dropdown">
-                                    <LinkContainer to="/clicker">
-                                        <MenuItem>Button clicker</MenuItem>
-                                    </LinkContainer>
-                                    <LinkContainer to="/stopwatch">
-                                        <MenuItem>Stopwatch</MenuItem>
-                                    </LinkContainer>
-                                    <LinkContainer to="/users">
-                                        <MenuItem>User list</MenuItem>
-                                    </LinkContainer>
-                                    <LinkContainer to="/react-bootstrap-table2">
-                                        <MenuItem>react-bootstrap-table2</MenuItem>
-                                    </LinkContainer>
-                                    <LinkContainer to="/mobx">
-                                        <MenuItem>Mobx</MenuItem>
-                                    </LinkContainer>
-                                </NavDropdown>
-                            </Nav>
+                                <Nav>
+                                    <NavDropdown title="Tests" id="basic-nav-dropdown">
+                                        <LinkContainer to="/clicker">
+                                            <MenuItem>Button clicker</MenuItem>
+                                        </LinkContainer>
+                                        <LinkContainer to="/stopwatch">
+                                            <MenuItem>Stopwatch</MenuItem>
+                                        </LinkContainer>
+                                        <LinkContainer to="/users">
+                                            <MenuItem>User list</MenuItem>
+                                        </LinkContainer>
+                                        <LinkContainer to="/react-bootstrap-table2">
+                                            <MenuItem>react-bootstrap-table2</MenuItem>
+                                        </LinkContainer>
+                                        <LinkContainer to="/mobx">
+                                            <MenuItem>Mobx</MenuItem>
+                                        </LinkContainer>
+                                    </NavDropdown>
+                                </Nav>
                                 // : null
                             }
-                        <Nav pullRight>
-                            {
+                            <Nav pullRight>
+                                {
                                 this.state.isAuthenticated
                                 ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
                                 : <LinkContainer to="/login">
                                     <NavItem>Login</NavItem>
                                 </LinkContainer>
                             }
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
-                <Routes childProps={childProps} />
-            </div>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                    <Routes childProps={childProps} />
+                </div>
+            </Provider>
         );
     }
 }

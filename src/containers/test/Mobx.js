@@ -1,25 +1,30 @@
 
 import React, { Component } from 'react';
 import Devtools from 'mobx-react-devtools';
-import { observer } from 'mobx-react';
-import { mobxState } from '../../App';
+import { Button, ButtonGroup } from 'react-bootstrap';
+import { observer, inject } from 'mobx-react';
 
-const Mobx = observer(class Mobx extends Component {
+const Mobx = inject('mobxstate')(observer(class Mobx extends Component {
 
-    handleInc = () => { mobxState.increment(); }
-    handleDec = () => { mobxState.decrement(); }
+    handleInc = () => { this.props.mobxstate.increment(); }
+    handleDec = () => { this.props.mobxstate.decrement(); }
 
     render() {
         return (
             <div>
                 <Devtools />
-                Counter: {mobxState.counter} <br />
+                Counter: {this.props.mobxstate.counter} <br />
                 <button onClick={this.handleInc}> + </button>
                 <button onClick={this.handleDec}> - </button>
+                <br /><br /><br />
+                <ButtonGroup>
+                    <Button>Celcius</Button>
+                    <Button>Fahrenheit</Button>
+                </ButtonGroup>
             </div>
         );
     }
 
-});
+}));
 
 export default Mobx;
