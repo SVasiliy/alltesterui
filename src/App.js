@@ -6,7 +6,6 @@ import { observable, computed, decorate, action } from 'mobx';
 import { Provider } from 'mobx-react';
 import './App.css';
 import Routes from './Routes';
-import MobxChild from './containers/test/MobxChild';
 
 export class MobxState {
     counter = 0;
@@ -69,7 +68,6 @@ class App extends Component {
         return (
             <Provider mobxstate={mobxstate}>
                 <div className="App container">
-                    <MobxChild />
                     <Navbar fluid collapseOnSelect>
                         <Navbar.Header>
                             <Navbar.Brand>

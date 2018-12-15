@@ -9,7 +9,7 @@ const MobxChild = inject('mobxstate')(observer(class MobxChild extends Component
         return (
             <div>
                 <Devtools />
-                MobxChild: {this.props.mobxstate.computedCounter} <br />
+                computed counter value: {this.props.mobxstate.computedCounter} <br />
             </div>
         );
     }
