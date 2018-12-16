@@ -2,32 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { observable, computed, decorate, action } from 'mobx';
 import { Provider } from 'mobx-react';
 import './App.css';
 import Routes from './Routes';
-
-export class MobxState {
-    counter = 0;
-
-    get computedCounter() {
-        return this.counter + (this.counter * 2);
-    }
-
-    increment() {
-        this.counter = this.counter + 1;
-    }
-
-    decrement() {
-        this.counter = this.counter - 1;
-    }
-}
-decorate(MobxState, {
-    counter: observable,
-    computedCounter: computed,
-    increment: action,
-    decrement: action,
-});
+import MobxState from './components/MobxState';
 
 
 class App extends Component {
