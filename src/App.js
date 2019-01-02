@@ -49,7 +49,7 @@ class App extends Component {
                     <Navbar fluid collapseOnSelect>
                         <Navbar.Header>
                             <Navbar.Brand>
-                                <Link to="/">Alltester</Link>
+                                <Link to="/">Alltester v2.0</Link>
                             </Navbar.Brand>
                             <Navbar.Toggle />
                         </Navbar.Header>
