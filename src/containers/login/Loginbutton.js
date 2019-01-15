@@ -10,7 +10,9 @@ const Loginbutton = inject('mobxstate')(observer(class Loginbutton extends Compo
 
     render() {
         const loginbutton = this.props.mobxstate.isAuthenticated
-                                ? <NavItem onClick={this.logout}>Logout</NavItem>
+                                ? (<LinkContainer to="/login">
+                                    <NavItem onClick={this.logout}>Logout</NavItem>
+                                </LinkContainer>)
                                 : (<LinkContainer to="/login">
                                     <NavItem>Login</NavItem>
                                 </LinkContainer>);
