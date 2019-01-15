@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { observer, inject } from 'mobx-react';
 import './Login.css';
 
 const querystring = require('querystring');
 
 
-class Loginform extends Component {
+const Loginform = inject('mobxstate')(observer(class Loginform extends Component {
+
+    userHasAuthenticated = (authenticated) => { this.props.mobxstate.userHasAuthenticated(authenticated); }
+    saveToken = (val) => { this.props.mobxstate.saveToken(val); }
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -23,8 +27,8 @@ class Loginform extends Component {
                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                    })
             .then((res) => {
-                this.props.userHasAuthenticated(true);
-                this.props.saveToken(res.data);
+                this.userHasAuthenticated(true);
+                this.saveToken(res.data);
                 // console.log(this.props.token);
             });
 
@@ -59,6 +63,6 @@ class Loginform extends Component {
             </div>
         );
     }
-}
+}));
 
 export default Loginform;

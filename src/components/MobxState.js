@@ -14,10 +14,30 @@ export default class MobxState {
     decrement() {
         this.counter = this.counter - 1;
     }
+
+    // login
+    isAuthenticated = null;
+    token = null;
+    userHasAuthenticated = (authenticated) => {
+        this.isAuthenticated = authenticated;
+    }
+    saveToken = (val) => {
+        this.token = val;
+        localStorage.setItem('token', JSON.stringify(val));
+    }
+    logout = () => {
+        this.isAuthenticated = false;
+    }
+
 }
 decorate(MobxState, {
     counter: observable,
     computedCounter: computed,
     increment: action,
     decrement: action,
+    isAuthenticated: observable,
+    token: observable,
+    userHasAuthenticated: action,
+    saveToken: action,
+    logout: action,
 });

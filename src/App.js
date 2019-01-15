@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Provider } from 'mobx-react';
 import './App.css';
 import Routes from './Routes';
 import MobxState from './components/MobxState';
+import Loginbutton from './containers/login/Loginbutton';
 
 
 class App extends Component {
@@ -13,38 +14,19 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthenticated: false,
-            token: null,
+            placeholder: null,
         };
     }
 
-
-    userHasAuthenticated = (authenticated) => {
-        this.setState({ isAuthenticated: authenticated });
-    }
-
-    saveToken = (val) => {
-        this.setState({ token: val });
-        localStorage.setItem('token', JSON.stringify(val));
-    }
-
-    handleLogout = () => {
-        this.userHasAuthenticated(false);
-        this.props.history.push('/login');
-    }
+    mobxstate = new MobxState();
 
     render() {
         const childProps = {
-            isAuthenticated: this.state.isAuthenticated,
-            token: this.state.token,
-            userHasAuthenticated: this.userHasAuthenticated,
-            saveToken: this.saveToken,
+            placeholder: null,
         };
 
-        const mobxstate = new MobxState();
-
         return (
-            <Provider mobxstate={mobxstate}>
+            <Provider mobxstate={this.mobxstate}>
                 <div className="App container">
                     <Navbar fluid collapseOnSelect>
                         <Navbar.Header>
@@ -55,8 +37,6 @@ class App extends Component {
                         </Navbar.Header>
                         <Navbar.Collapse>
                             {
-                                // this.state.isAuthenticated
-                                // ?
                                 <Nav>
                                     <NavDropdown title="Tests" id="basic-nav-dropdown">
                                         <LinkContainer to="/clicker">
@@ -76,16 +56,9 @@ class App extends Component {
                                         </LinkContainer>
                                     </NavDropdown>
                                 </Nav>
-                                // : null
                             }
                             <Nav pullRight>
-                                {
-                                this.state.isAuthenticated
-                                ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
-                                : <LinkContainer to="/login">
-                                    <NavItem>Login</NavItem>
-                                </LinkContainer>
-                            }
+                                <Loginbutton />
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
