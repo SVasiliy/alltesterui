@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavItem } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { observer, inject } from 'mobx-react';
 
