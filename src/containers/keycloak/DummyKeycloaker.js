@@ -6,7 +6,7 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
 
     handleInc = () => { this.props.mobxstate.increment(); }
     handleDec = () => { this.props.mobxstate.decrement(); }
-    doAlert = () => { alert(111); }
+    doAlert = () => { alert(`token - ${JSON.stringify(this.props.mobxstate.token)}`); }
 
     render() {
         return (
