@@ -8,16 +8,20 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
     saveApiPremium = (val) => { this.props.mobxstate.saveApiPremium(val); }
 
     callPremium = () => {
-        const AuthStr = 'Bearer '.concat(this.props.mobxstate.token.access_token);
-        axios.get(`${process.env.REACT_APP_APIURL}/premium`, { headers: { Authorization: AuthStr } })
-            .then((response) => {
+        if (this.props.mobxstate.token === null) {
+            this.props.history.push('/login');
+        } else {
+            const AuthStr = 'Bearer '.concat(this.props.mobxstate.token.access_token);
+            axios.get(`${process.env.REACT_APP_APIURL}/premium`, { headers: { Authorization: AuthStr } })
+                .then((response) => {
             // If request is good...
-                console.log(response.data);
-                this.saveApiPremium(response.data);
-            })
-            .catch((error) => {
-                console.log(`error ${error}`);
-            });
+                    console.log(response.data);
+                    this.saveApiPremium(response.data);
+                })
+                .catch((error) => {
+                    console.log(`error ${error}`);
+                });
+        }
     }
 
     render() {
