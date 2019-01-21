@@ -1,12 +1,24 @@
-
 import React, { Component } from 'react';
+import axios from 'axios';
 import { observer, inject } from 'mobx-react';
+import PremiumViewer from './PremiumViewer';
 
 const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker extends Component {
 
-    handleInc = () => { this.props.mobxstate.increment(); }
-    handleDec = () => { this.props.mobxstate.decrement(); }
-    doAlert = () => { alert(`token - ${JSON.stringify(this.props.mobxstate.token)}`); }
+    saveApiPremium = (val) => { this.props.mobxstate.saveApiPremium(val); }
+
+    callPremium = () => {
+        const AuthStr = 'Bearer '.concat(this.props.mobxstate.token.access_token);
+        axios.get(`${process.env.REACT_APP_APIURL}/premium`, { headers: { Authorization: AuthStr } })
+            .then((response) => {
+            // If request is good...
+                console.log(response.data);
+                this.saveApiPremium(response.data);
+            })
+            .catch((error) => {
+                console.log(`error ${error}`);
+            });
+    }
 
     render() {
         return (
@@ -15,7 +27,9 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 <br />
                 <hr />
                 <br />
-                /api/premium &nbsp; <button onClick={this.doAlert}>GET call</button>
+                /api/premium &nbsp; <button onClick={this.callPremium}>GET call</button>
+                <br />
+                <PremiumViewer />
                 <br />
                 <hr />
             </div>

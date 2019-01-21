@@ -29,6 +29,11 @@ export default class MobxState {
         this.isAuthenticated = false;
     }
 
+    apiPremium = null;
+    saveApiPremium = (val) => {
+        this.apiPremium = val;
+    }
+
 }
 decorate(MobxState, {
     counter: observable,
@@ -40,4 +45,5 @@ decorate(MobxState, {
     userHasAuthenticated: action,
     saveToken: action,
     logout: action,
+    apiPremium: observable,
 });
