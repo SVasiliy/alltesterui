@@ -32,7 +32,7 @@ const Loginform = inject('mobxstate')(observer(class Loginform extends Component
                 // console.log(this.props.token);
             });
 
-        this.props.history.push('/');
+        this.props.history.goBack();
     }
 
     render() {
