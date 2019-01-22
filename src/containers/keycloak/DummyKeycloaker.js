@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react';
 import PremiumViewer from './PremiumViewer';
+import { popup } from '../../components/utils';
 
 const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker extends Component {
 
@@ -27,13 +28,13 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
     render() {
         return (
             <div>
-                dummy keycloak tester
+                <b>dummy keycloak tester</b>
                 <br />
                 <hr />
-                <br />
                 /api/premium &nbsp; <button onClick={this.callPremium}>GET call</button>
-                <br />
                 <PremiumViewer />
+                <hr />
+                output test &nbsp; <button onClick={popup}>click me</button>
                 <br />
                 <hr />
             </div>

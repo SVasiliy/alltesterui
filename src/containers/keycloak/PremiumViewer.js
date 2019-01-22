@@ -7,7 +7,7 @@ const PremiumViewer = inject('mobxstate')(observer(class PremiumViewer extends C
     render() {
         return (
             <div>
-                {this.props.mobxstate.apiPremium} <br />
+                {this.props.mobxstate.apiPremium}
             </div>
         );
     }
