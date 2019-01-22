@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react';
 import PremiumViewer from './PremiumViewer';
-import { popup } from '../../components/utils';
+import { decodeJWT } from '../../components/utils';
 
 const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker extends Component {
 
     saveApiPremium = (val) => { this.props.mobxstate.saveApiPremium(val); }
+    decodeJWTs = () => { decodeJWT(this.props.mobxstate.token.access_token); }
 
     callPremium = () => {
         if (this.props.mobxstate.token === null) {
@@ -34,7 +35,7 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 /api/premium &nbsp; <button onClick={this.callPremium}>GET call</button>
                 <PremiumViewer />
                 <hr />
-                output test &nbsp; <button onClick={popup}>click me</button>
+                output test &nbsp; <button onClick={this.decodeJWTs}>click me</button>
                 <br />
                 <hr />
             </div>
