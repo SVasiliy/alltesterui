@@ -5,5 +5,5 @@ export function popup() {
 }
 
 export function decodeJWT(token) {
-    alert(JSON.stringify(jwtDecode(token)));
+    return jwtDecode(token);
 }

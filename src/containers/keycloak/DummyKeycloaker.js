@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react';
 import PremiumViewer from './PremiumViewer';
+import JwtViewer from './JwtViewer';
 import { decodeJWT } from '../../components/utils';
 
 const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker extends Component {
@@ -36,6 +37,7 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 <PremiumViewer />
                 <hr />
                 output test &nbsp; <button onClick={this.decodeJWTs}>click me</button>
+                <JwtViewer />
                 <br />
                 <hr />
             </div>

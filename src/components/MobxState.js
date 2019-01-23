@@ -1,4 +1,5 @@
 import { observable, computed, decorate, action } from 'mobx';
+import { decodeJWT } from './utils';
 
 export default class MobxState {
     counter = 0;
@@ -18,6 +19,9 @@ export default class MobxState {
     // login
     isAuthenticated = null;
     token = null;
+    get tokenDecoded() {
+        return this.token === null ? null : decodeJWT(this.token.access_token);
+    }
     userHasAuthenticated = (authenticated) => {
         this.isAuthenticated = authenticated;
     }
@@ -27,8 +31,10 @@ export default class MobxState {
     }
     logout = () => {
         this.isAuthenticated = false;
+        this.token = null;
     }
 
+    // response from /api/premium
     apiPremium = null;
     saveApiPremium = (val) => {
         this.apiPremium = val;
@@ -45,5 +51,7 @@ decorate(MobxState, {
     userHasAuthenticated: action,
     saveToken: action,
     logout: action,
+    tokenDecoded: computed,
     apiPremium: observable,
+
 });
