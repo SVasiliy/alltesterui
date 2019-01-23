@@ -9,10 +9,10 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
     saveApiPremium = (val) => { this.props.mobxstate.saveApiPremium(val); }
 
     callPremium = () => {
-        if (this.props.mobxstate.token === null) {
+        if (this.props.mobxstate.kcToken === null) {
             this.props.history.push('/login');
         } else {
-            const AuthStr = 'Bearer '.concat(this.props.mobxstate.token.access_token);
+            const AuthStr = 'Bearer '.concat(this.props.mobxstate.kcToken.access_token);
             axios.get(`${process.env.REACT_APP_APIURL}/premium`, { headers: { Authorization: AuthStr } })
                 .then((response) => {
                     this.saveApiPremium(response.data);

@@ -1,9 +1,5 @@
 const jwtDecode = require('jwt-decode');
 
-export function popup() {
-    alert('Hello World');
-}
-
-export function decodeJWT(token) {
-    return jwtDecode(token);
+export function decodeJWT(jwt) {
+    return jwtDecode(jwt);
 }

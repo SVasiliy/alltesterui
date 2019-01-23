@@ -2,36 +2,35 @@ import { observable, computed, decorate, action } from 'mobx';
 import { decodeJWT } from './utils';
 
 export default class MobxState {
-    counter = 0;
 
+    // counter
+    counter = 0;
     get computedCounter() {
         return this.counter + (this.counter * 2);
     }
-
     increment() {
         this.counter = this.counter + 1;
     }
-
     decrement() {
         this.counter = this.counter - 1;
     }
 
     // login
     isAuthenticated = null;
-    token = null;
-    get tokenDecoded() {
-        return this.token === null ? null : decodeJWT(this.token.access_token);
+    kcToken = null;
+    get accessTokenJSON() {
+        return this.kcToken === null ? null : decodeJWT(this.kcToken.access_token);
     }
     userHasAuthenticated = (authenticated) => {
         this.isAuthenticated = authenticated;
     }
-    saveToken = (val) => {
-        this.token = val;
-        localStorage.setItem('token', JSON.stringify(val));
+    saveKcToken = (val) => {
+        this.kcToken = val;
+        localStorage.setItem('kcToken', JSON.stringify(val));
     }
     logout = () => {
         this.isAuthenticated = false;
-        this.token = null;
+        this.kcToken = null;
     }
 
     // response from /api/premium
@@ -47,11 +46,10 @@ decorate(MobxState, {
     increment: action,
     decrement: action,
     isAuthenticated: observable,
-    token: observable,
+    kcToken: observable,
+    accessTokenJSON: computed,
     userHasAuthenticated: action,
-    saveToken: action,
+    saveKcToken: action,
     logout: action,
-    tokenDecoded: computed,
     apiPremium: observable,
-
 });

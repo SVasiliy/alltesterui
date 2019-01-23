@@ -10,7 +10,7 @@ const querystring = require('querystring');
 const Loginform = inject('mobxstate')(observer(class Loginform extends Component {
 
     userHasAuthenticated = (authenticated) => { this.props.mobxstate.userHasAuthenticated(authenticated); }
-    saveToken = (val) => { this.props.mobxstate.saveToken(val); }
+    saveToken = (val) => { this.props.mobxstate.saveKcToken(val); }
 
     handleSubmit = (event) => {
         event.preventDefault();
