@@ -7,7 +7,7 @@ const JwtViewer = inject('mobxstate')(observer(class JwtViewer extends Component
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.mobxstate.accessTokenJSON)}
+                <pre>{JSON.stringify(this.props.mobxstate.accessTokenJSON, null, 2)}</pre>
             </div>
         );
     }
