@@ -8,6 +8,7 @@ import Mobx from './containers/test/Mobx';
 import DummyKeycloaker from './containers/keycloak/DummyKeycloaker';
 import Stopwatch from './containers/test/Stopwatch';
 import Users from './containers/test/Users';
+import CssPlay from './containers/test/cssplay/CssPlay';
 import AppliedRoute from './components/AppliedRoute';
 
 export default ({ childProps }) =>
@@ -19,6 +20,7 @@ export default ({ childProps }) =>
       <AppliedRoute path="/stopwatch" exact component={Stopwatch} props={childProps} />
       <AppliedRoute path="/users" exact component={Users} props={childProps} />
       <AppliedRoute path="/react-bootstrap-table2" exact component={ReactBootstrapTable2} props={childProps} />
+      <AppliedRoute path="/cssplay" exact component={CssPlay} props={childProps} />
 
       <AppliedRoute path="/dummykeycloaker" exact component={DummyKeycloaker} props={childProps} />
   </Switch>);

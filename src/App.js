@@ -54,6 +54,9 @@ class App extends Component {
                                         <LinkContainer to="/mobx">
                                             <MenuItem>Mobx</MenuItem>
                                         </LinkContainer>
+                                        <LinkContainer to="/cssplay">
+                                            <MenuItem>CSS Play</MenuItem>
+                                        </LinkContainer>
                                     </NavDropdown>
                                     <NavDropdown title="Keycloak" id="basic-nav-dropdown">
                                         <LinkContainer to="/dummykeycloaker">
