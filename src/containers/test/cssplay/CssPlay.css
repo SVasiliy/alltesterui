@@ -1,0 +1,18 @@
+.column1 {
+    float: left;
+    width: 50%;
+    background-color: lightblue;
+  }
+
+.column2 {
+    float: left;
+    width: 50%;
+    background-color: yellowgreen;
+  }  
+  
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
