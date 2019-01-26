@@ -18,7 +18,7 @@ class UserDetails extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 {this.state.person.name != null ?
                     <Table bordered condensed hover>
                         <tbody>
