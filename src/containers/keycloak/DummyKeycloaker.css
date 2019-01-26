@@ -1,0 +1,13 @@
+p.left {
+    float: left;
+}
+
+p.right {
+    float: right;
+}  
+
+div.inline{
+    display: inline-block;
+    width: 100%;
+}
+  

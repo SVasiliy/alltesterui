@@ -3,6 +3,7 @@ import axios from 'axios';
 import { observer, inject } from 'mobx-react';
 import PremiumViewer from './PremiumViewer';
 import JwtViewer from './JwtViewer';
+import './DummyKeycloaker.css';
 
 const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker extends Component {
 
@@ -29,7 +30,12 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 <b>dummy keycloak tester</b>
                 <br />
                 <hr />
-                access_token: <JwtViewer />
+                <div className="inline">
+                    <p className="left">access_token: </p>
+                    <p className="right">show/hide <input type="checkbox" /></p>
+
+                </div>
+                <JwtViewer />
                 <hr />
                 /api/premium &nbsp; <button onClick={this.callPremium}>GET call</button>
                 <PremiumViewer />
