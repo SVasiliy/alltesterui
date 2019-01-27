@@ -45,6 +45,12 @@ export default class MobxState {
         this.apiPremium = val;
     }
 
+    // response from /api/resourcea
+    apiResourceA = null;
+    saveApiResourceA = (val) => {
+        this.apiResourceA = val;
+    }
+
 }
 decorate(MobxState, {
     counter: observable,
@@ -59,5 +65,5 @@ decorate(MobxState, {
     logout: action,
     accessTokenToggleFlg: observable,
     apiPremium: observable,
-
+    apiResourceA: observable,
 });
