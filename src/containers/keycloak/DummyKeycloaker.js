@@ -8,6 +8,7 @@ import './DummyKeycloaker.css';
 const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker extends Component {
 
     saveApiPremium = (val) => { this.props.mobxstate.saveApiPremium(val); }
+    toggleAccessTokenToggleFlg = () => { this.props.mobxstate.toggleAccessTokenToggleFlg(); }
 
     callPremium = () => {
         if (this.props.mobxstate.kcToken === null) {
@@ -32,7 +33,7 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 <hr />
                 <div className="inline">
                     <p className="left">access_token: </p>
-                    <p className="right">show/hide <input type="checkbox" /></p>
+                    <p className="right">show/hide <input type="checkbox" checked={this.props.mobxstate.accessTokenToggleFlg} onChange={this.toggleAccessTokenToggleFlg} /></p>
 
                 </div>
                 <JwtViewer />

@@ -33,6 +33,12 @@ export default class MobxState {
         this.kcToken = null;
     }
 
+    // access token toggle
+    accessTokenToggleFlg = false;
+    toggleAccessTokenToggleFlg = () => {
+        this.accessTokenToggleFlg = !this.accessTokenToggleFlg;
+    }
+
     // response from /api/premium
     apiPremium = null;
     saveApiPremium = (val) => {
@@ -51,5 +57,7 @@ decorate(MobxState, {
     userHasAuthenticated: action,
     saveKcToken: action,
     logout: action,
+    accessTokenToggleFlg: observable,
     apiPremium: observable,
+
 });
