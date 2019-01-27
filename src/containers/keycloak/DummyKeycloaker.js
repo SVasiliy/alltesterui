@@ -36,7 +36,7 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                     <p className="right">show/hide <input type="checkbox" checked={this.props.mobxstate.accessTokenToggleFlg} onChange={this.toggleAccessTokenToggleFlg} /></p>
 
                 </div>
-                <JwtViewer />
+                {this.props.mobxstate.accessTokenToggleFlg ? <JwtViewer /> : <div />}
                 <hr />
                 /api/premium &nbsp; <button onClick={this.callPremium}>GET call</button>
                 <PremiumViewer />
