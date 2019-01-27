@@ -12,8 +12,12 @@ class CssPlay extends Component {
                 Css Player
                 <br />
                 <div className="row">
-                    <div className="column1">div1</div>
-                    <div className="column2">div2</div>
+                    <div className="column1">
+                        <div className="div1">box1</div>
+                        <div className="div1">box2</div>
+                        <div className="div1">box3</div>
+                    </div>
+                    <div className="column2">column2</div>
                 </div>
             </div>
         );
