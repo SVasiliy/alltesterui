@@ -31,6 +31,8 @@ export default class MobxState {
     logout = () => {
         this.isAuthenticated = false;
         this.kcToken = null;
+        this.apiPremium = null;
+        this.apiResourceA = null;
     }
 
     // access token toggle
