@@ -24,6 +24,7 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 })
                 .catch((error) => {
                     console.log(`error ${error}`);
+                    this.saveApiPremium('Access denied!');
                 });
         }
     }
@@ -39,6 +40,7 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 })
                 .catch((error) => {
                     console.log(`error ${error}`);
+                    this.saveApiResourceA('Access denied!');
                 });
         }
     }
@@ -58,7 +60,6 @@ const DummyKeycloaker = inject('mobxstate')(observer(class DummyKeycloaker exten
                 <hr />
                 /api/premium &nbsp; <button onClick={this.callPremium}>GET call</button>
                 <PremiumViewer />
-                <hr />
                 <hr />
                 /api/resourcea &nbsp; <button onClick={this.callResourceA}>GET call</button>
                 <ResourceAViewer />
