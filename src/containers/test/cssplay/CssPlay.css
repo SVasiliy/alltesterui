@@ -9,6 +9,12 @@
     width: 50%;
     background-color: yellowgreen;
   }  
+
+.column3 {
+    float: left;
+    width: 50%;
+    background-color: gray;
+  }  
   
 /* Clear floats after the columns */
 .row:after {
@@ -22,5 +28,6 @@
   width: 220px;
   height: 100px;
   border: 1px solid blue; 
+  background-color: lightgrey;
   float: left;
 }
