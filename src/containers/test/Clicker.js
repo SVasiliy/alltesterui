@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import { printSomething } from '../../jstest/test';
 
 class Clicker extends Component {
 
@@ -21,6 +22,9 @@ class Clicker extends Component {
                         onClick={this.handleButtonClick}
                         className="button">click counter</button>
                 </p>
+                <button
+                    onClick={printSomething}
+                    className="button">try js</button>
             </div>
         );
     }
