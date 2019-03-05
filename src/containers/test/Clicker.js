@@ -1,13 +1,21 @@
 
 import React, { Component } from 'react';
-import { printSomething, printSomethingElse } from '../../jstest/test';
+import { printSomething, ReactDeveloper } from '../../jstest/test';
 
 class Clicker extends Component {
 
-    state = { eventCount: 0 };
+    state = {
+        eventCount: 0,
+        jobDescription: null,
+    };
 
     handleButtonClick = () => {
         this.setState({ eventCount: this.state.eventCount + 1 });
+    }
+
+    setJobDescription = () => {
+        const dev = new ReactDeveloper();
+        this.setState({ jobDescription: dev.getJob() });
     }
 
     render() {
@@ -28,12 +36,12 @@ class Clicker extends Component {
                         onClick={printSomething}
                         className="button">try js</button>
                 </p>
-
-                <p>
-                    <button
-                        onClick={printSomethingElse}
-                        className="button">try js 2</button>
-                </p>
+                <br />
+                <button
+                    onClick={this.setJobDescription}
+                    className="button">try js 2</button>
+                <br />
+                <p>job description: {state.jobDescription} </p>
             </div>
         );
     }
