@@ -2,15 +2,14 @@
 import React, { Component } from 'react';
 import { printSomething, ReactDeveloper } from '../../jstest/test';
 
-function doAlert() { alert(1); }
-
+function showContext() { console.log(this); }
 
 class Clicker extends Component {
 
-//    constructor() {
-//        super();
-//       this.getThis = new ThisTester().getThis.bind(this);
-//    }
+    constructor() {
+        super();
+        this.showContext = showContext.bind(this);
+    }
 
     state = {
         eventCount: 0,
@@ -58,8 +57,8 @@ class Clicker extends Component {
 
                 <br />
                 <button
-                    onClick={doAlert}
-                    className="button">call simple js function</button>
+                    onClick={this.showContext}
+                    className="button">show *this* context</button>
             </div>
         );
     }
