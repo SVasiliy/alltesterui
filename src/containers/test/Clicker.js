@@ -2,7 +2,15 @@
 import React, { Component } from 'react';
 import { printSomething, ReactDeveloper } from '../../jstest/test';
 
+function doAlert() { alert(1); }
+
+
 class Clicker extends Component {
+
+//    constructor() {
+//        super();
+//       this.getThis = new ThisTester().getThis.bind(this);
+//    }
 
     state = {
         eventCount: 0,
@@ -18,6 +26,7 @@ class Clicker extends Component {
         this.setState({ jobDescription: dev.getJob() });
     }
 
+
     render() {
         const state = this.state;
 
@@ -30,18 +39,27 @@ class Clicker extends Component {
                         onClick={this.handleButtonClick}
                         className="button">click counter</button>
                 </p>
-
-                <p>
-                    <button
-                        onClick={printSomething}
-                        className="button">try js</button>
-                </p>
                 <br />
+
+                <p className="App-intro">javascript tests</p><br />
+
+                <button
+                    onClick={printSomething}
+                    className="button">try js</button>
+
+                <br /><br />
+
                 <button
                     onClick={this.setJobDescription}
                     className="button">try js 2</button>
+
                 <br />
                 <p>job description: {state.jobDescription} </p>
+
+                <br />
+                <button
+                    onClick={doAlert}
+                    className="button">call simple js function</button>
             </div>
         );
     }
