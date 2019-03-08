@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import ChildComp from './ClickerChild';
 import { printSomething, ReactDeveloper } from '../../jstest/test';
 
 function showContext() { console.log(this); }
@@ -59,6 +60,9 @@ class Clicker extends Component {
                 <button
                     onClick={this.showContext}
                     className="button">show *this* context</button>
+
+                <br />
+                <ChildComp testProp="test test test" />
             </div>
         );
     }
