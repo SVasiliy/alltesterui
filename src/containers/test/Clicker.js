@@ -29,6 +29,7 @@ class Clicker extends Component {
 
     render() {
         const state = this.state;
+        const propObj = { value: 'test value' };
 
         return (
             <div>
@@ -62,7 +63,12 @@ class Clicker extends Component {
                     className="button">show *this* context</button>
 
                 <br />
-                <ChildComp testProp="test test test" />
+                <ChildComp testProp={propObj} />
+
+                <button
+                    onClick={() => { propObj.value = 'changed'; this.setState({ jobDescription: 'jd changed' }); }}
+                    className="button">change ChildProp</button>
+
             </div>
         );
     }
