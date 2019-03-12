@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
 import ChildComp from './ClickerChild';
-import { printSomething, ReactDeveloper } from './test';
+import { ReactDeveloper } from './utils';
 import ButtonClicker from './ButtonClicker';
+import FunctionCaller from './FunctionCaller';
 
 function showContext() { console.log(this); }
 
@@ -33,9 +34,7 @@ class Clicker extends Component {
                 <br />
                 <p className="App-intro">javascript tests</p><br />
 
-                <button
-                    onClick={printSomething}
-                    className="button">try js</button>
+                <FunctionCaller />
 
                 <br /><br />
 
