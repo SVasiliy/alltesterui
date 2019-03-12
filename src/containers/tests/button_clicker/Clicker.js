@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import ChildComp from './ClickerChild';
 import { printSomething, ReactDeveloper } from './test';
+import ButtonClicker from './ButtonClicker';
 
 function showContext() { console.log(this); }
 
@@ -13,13 +14,8 @@ class Clicker extends Component {
     }
 
     state = {
-        eventCount: 0,
         jobDescription: null,
     };
-
-    handleButtonClick = () => {
-        this.setState({ eventCount: this.state.eventCount + 1 });
-    }
 
     setJobDescription = () => {
         const dev = new ReactDeveloper();
@@ -30,19 +26,11 @@ class Clicker extends Component {
     // testF = propObj => { propObj = { value: 'test value 23' }; };
 
     render() {
-        const state = this.state;
-
         return (
             <div>
-                <p className="App-intro">button clicker</p><br />
-                <p>button clicked {state.eventCount} times</p>
-                <p>
-                    <button
-                        onClick={this.handleButtonClick}
-                        className="button">click counter</button>
-                </p>
-                <br />
+                <ButtonClicker />
 
+                <br />
                 <p className="App-intro">javascript tests</p><br />
 
                 <button
@@ -56,7 +44,7 @@ class Clicker extends Component {
                     className="button">try js 2</button>
 
                 <br />
-                <p>job description: {state.jobDescription} </p>
+                <p>job description: {this.state.jobDescription} </p>
 
                 <br />
                 <button

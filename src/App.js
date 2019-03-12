@@ -31,7 +31,7 @@ class App extends Component {
                     <Navbar fluid collapseOnSelect>
                         <Navbar.Header>
                             <Navbar.Brand>
-                                <Link to="/">Alltester v3.1</Link>
+                                <Link to="/">Alltester v3.2</Link>
                             </Navbar.Brand>
                             <Navbar.Toggle />
                         </Navbar.Header>
