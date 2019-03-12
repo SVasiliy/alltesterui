@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import ChildComp from './ClickerChild';
-import { printSomething, ReactDeveloper } from '../../../jstest/test';
+import { printSomething, ReactDeveloper } from './test';
 
 function showContext() { console.log(this); }
 
