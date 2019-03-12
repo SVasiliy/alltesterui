@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import Home from './containers/Home';
-import ReactBootstrapTable2 from './containers/test/ReactBootstrapTable2';
+import ReactBootstrapTable2 from './containers/tests/react_bootstrap_table2/ReactBootstrapTable2';
 import Loginform from './containers/login/Loginform';
-import Clicker from './containers/test/Clicker';
-import Mobx from './containers/test/Mobx';
+import Clicker from './containers/tests/button_clicker/Clicker';
+import Mobx from './containers/tests/mobx/Mobx';
 import DummyKeycloaker from './containers/keycloak/DummyKeycloaker';
-import Stopwatch from './containers/test/Stopwatch';
-import Users from './containers/test/Users';
-import CssPlay from './containers/test/cssplay/CssPlay';
+import Stopwatch from './containers/tests/stopwatch/Stopwatch';
+import Users from './containers/tests/user_list/Users';
+import CssPlay from './containers/tests/cssplay/CssPlay';
 import AppliedRoute from './components/AppliedRoute';
 
 export default ({ childProps }) =>
