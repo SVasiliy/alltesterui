@@ -7,6 +7,4 @@ class ChildComp extends Component {
     }
 }
 
-// const ChildComp = props => <div>prop: {props.testProp} </div>;
-
 export default ChildComp;

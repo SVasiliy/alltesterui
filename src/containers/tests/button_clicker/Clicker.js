@@ -1,15 +1,14 @@
 
 import React, { Component } from 'react';
-import ChildComp from './ClickerChild';
 import ButtonClicker from './ButtonClicker';
 import FunctionCaller from './FunctionCaller';
 import ClassCaller from './ClassCaller';
 import ContextBinder from './ContextBinder';
+import PropTester from './PropTester';
 
 class Clicker extends Component {
 
-    propObj = { value: 'test value' };
-    // testF = propObj => { propObj = { value: 'test value 23' }; };
+    placeholder = null;
 
     render() {
         return (
@@ -30,11 +29,8 @@ class Clicker extends Component {
                 <ContextBinder />
 
                 <br />
-                <ChildComp testProp={this.propObj} />
+                <PropTester />
 
-                <button
-                    onClick={() => { this.propObj = { value: 'test value 2' }; this.setState({ jobDescription: 'jd changed' }); }}
-                    className="button">change ChildProp</button>
 
             </div>
         );
