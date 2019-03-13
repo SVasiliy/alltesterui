@@ -15,24 +15,24 @@ class Clicker extends Component {
             <div>
 
                 <div className="clearfix">
-                    <div className="box" style={{ backgroundColor: '#bbb' }}>
+                    <div className="box" style={{ backgroundColor: '#F0F8FF' }}>
                         <ButtonClicker />
                     </div>
-                    <div className="box" style={{ backgroundColor: '#ccc' }}>
+                    <div className="box" style={{ backgroundColor: '#F5FFFA' }}>
                         <FunctionCaller />
                     </div>
-                    <div className="box" style={{ backgroundColor: '#ddd' }}>
+                    <div className="box" style={{ backgroundColor: '#F0F8FF' }}>
                         <ClassCaller />
                     </div>
                 </div>
                 <div className="clearfix">
-                    <div className="box" style={{ backgroundColor: '#ddd' }}>
+                    <div className="box" style={{ backgroundColor: '#F5FFFA' }}>
                         <ContextBinder />
                     </div>
-                    <div className="box" style={{ backgroundColor: '#ccc' }}>
+                    <div className="box" style={{ backgroundColor: '#F0F8FF' }}>
                         <PropTester />
                     </div>
-                    <div className="box" style={{ backgroundColor: '#bbb' }}>
+                    <div className="box" style={{ backgroundColor: '#F5FFFA' }}>
                         <p>placeholder</p>
                     </div>
                 </div>

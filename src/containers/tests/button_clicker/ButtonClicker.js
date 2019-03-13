@@ -12,13 +12,12 @@ class ButtonClicker extends Component {
 
     render() {
         return (<div>
-            <p className="App-intro">button clicker</p><br />
-            <p>button clicked {this.state.eventCount} times</p>
-            <br />
             <button
                 onClick={this.handleButtonClick}
                 className="button">click counter
             </button>
+            <br />
+            <p>button clicked {this.state.eventCount} times</p>
         </div>
         );
     }
