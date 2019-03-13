@@ -1,0 +1,20 @@
+.clickDiv {
+  margin: 10px;
+  width: 220px;
+  height: 100px;
+  border: 1px solid blue; 
+  background-color: lightgrey;
+  float: left;
+}
+
+.box {
+  float: left;
+  width: 33.33%;
+  padding: 50px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
