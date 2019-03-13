@@ -16,36 +16,26 @@ class Clicker extends Component {
 
                 <div className="clearfix">
                     <div className="box" style={{ backgroundColor: '#bbb' }}>
-                        <p>Some text inside the box.</p>
+                        <ButtonClicker />
                     </div>
                     <div className="box" style={{ backgroundColor: '#ccc' }}>
-                        <p>Some text inside the box.</p>
+                        <FunctionCaller />
                     </div>
                     <div className="box" style={{ backgroundColor: '#ddd' }}>
-                        <p>Some text inside the box.</p>
+                        <ClassCaller />
                     </div>
                 </div>
-
-
-                <ButtonClicker />
-
-                <br />
-                <p className="App-intro">javascript tests</p><br />
-
-                <FunctionCaller />
-
-                <br /><br />
-
-                <ClassCaller />
-
-                <br />
-
-                <ContextBinder />
-
-                <br />
-                <PropTester />
-
-
+                <div className="clearfix">
+                    <div className="box" style={{ backgroundColor: '#ddd' }}>
+                        <ContextBinder />
+                    </div>
+                    <div className="box" style={{ backgroundColor: '#ccc' }}>
+                        <PropTester />
+                    </div>
+                    <div className="box" style={{ backgroundColor: '#bbb' }}>
+                        <p>placeholder</p>
+                    </div>
+                </div>
             </div>
         );
     }
