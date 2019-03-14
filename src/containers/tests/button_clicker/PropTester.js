@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import ChildComp from './ClickerChild';
+import PropTesterChild from './PropTesterChild';
 
+/*
+not only change of states triggers re-render
+but also if a property passed to the child is changed - re-render is triggered
+*/
 class PropTester extends Component {
 
     propObj = { value: 'test value' };
@@ -8,9 +12,9 @@ class PropTester extends Component {
     render() {
         return (<div>
             <button
-                onClick={() => { this.propObj = { value: 'test value 2' }; this.setState({ jobDescription: 'jd changed' }); }}
+                onClick={() => { this.propObj = { value: 'test value 2' }; }}
                 className="button">change ChildProp</button>
-            <ChildComp testProp={this.propObj} />
+            <PropTesterChild testProp={this.propObj} />
         </div>);
     }
 
